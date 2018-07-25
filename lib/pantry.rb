@@ -46,12 +46,6 @@ class Pantry
     able_to_make
   end
 
-  def find_recipes_by_name(recipes)
-    @cookbook.find_all do |recipe|
-      recipes.member?(recipe.name)
-    end
-  end
-
   def how_many_can_i_make
     recipe_names     = what_can_i_make
     recipe_objects   = find_recipes_by_name(recipe_names)
@@ -64,6 +58,13 @@ class Pantry
       amount_available[recipe.name] = amount.min
     end
     amount_available
-    require "pry"; binding.pry
+  end
+
+  private
+  
+  def find_recipes_by_name(recipes)
+    @cookbook.find_all do |recipe|
+      recipes.member?(recipe.name)
+    end
   end
 end
