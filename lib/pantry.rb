@@ -34,4 +34,8 @@ class Pantry
   def add_to_cookbook(recipe)
     @cookbook << recipe
   end
+
+  def what_can_i_make
+  
+  end
 end
